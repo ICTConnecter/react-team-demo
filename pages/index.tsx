@@ -7,6 +7,9 @@ const Home: NextPage<{ liff: Liff | null; liffError: string | null }> = ({
   liff,
   liffError
 }) => {
+
+  const idToken = liff?.getIDToken();
+
   return (
     <div>
       <Head>
@@ -17,7 +20,7 @@ const Home: NextPage<{ liff: Liff | null; liffError: string | null }> = ({
 
       <main className={styles.main}>
         <h1>create-liff-app</h1>
-        {liff && <p>LIFF init succeeded.</p>}
+        {liff && <><p>LIFF init succeeded.</p><p>{idToken}</p></>}
         {liffError && (
           <>
             <p>LIFF init failed.</p>
