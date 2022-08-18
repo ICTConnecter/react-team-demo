@@ -1,6 +1,7 @@
 import type { Liff } from "@line/liff";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useEffect } from "react";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage<{ liff: Liff | null; liffError: string | null }> = ({
@@ -18,7 +19,7 @@ const Home: NextPage<{ liff: Liff | null; liffError: string | null }> = ({
 
       <main className={styles.main}>
         <h1>create-liff-app</h1>
-        {liff && <><p>LIFF init succeeded.</p><p>IDトークン:{liff?.getIDToken()}</p></>}
+        {liff && <><p>LIFF init succeeded.</p><p>IDトークン:{liff.getIDToken()}</p></>}
         {liffError && (
           <>
             <p>LIFF init failed.</p>
